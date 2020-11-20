@@ -70,6 +70,11 @@ function App() {
 
         <button style={{marginBottom:"20px"}} className="button" onClick={getUserInfo}>show user info</button> 
         <button style={{marginBottom:"20px"}} className="button" onClick={scanner}>scan??</button> 
+
+        <button style={{marginBottom:"20px"}} className="button">
+          <a href="https://line.me/R/nv/QRCodeReader">scannnnn</a>  
+        </button> 
+
         
       </header>
     </div>
