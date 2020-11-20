@@ -1,9 +1,21 @@
+import React from "react"
 import logo from './logo.svg';
 import liff from "@line/liff"
 import './App.css';
 
 function App() {
-  console.log(process.env.REACT_APP_LIFF)
+
+  React.useEffect(()=>{
+    liff.init({liffId: process.env.REACT_APP_LIFF})
+    .then(()=>{
+      console.log("init works...")
+    })
+    .catch(err=>{
+      alert(err.code,err.message)
+    })
+  },[])
+
+  // console.log(process.env.REACT_APP_LIFF)
   const sendMessage = () => {
     liff.init({liffId: process.env.REACT_APP_LIFF}) // LIFF IDをセットする
       .then(() => {
