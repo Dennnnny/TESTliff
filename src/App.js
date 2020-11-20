@@ -10,6 +10,7 @@ function App() {
         if (!liff.isLoggedIn()) {
           liff.login({}) // ログインしていなければ最初にログインする
         } else if (liff.isInClient()) { // LIFFので動いているのであれば
+          alert("here")
           liff.sendMessages([{ // メッセージを送信する
             'type': 'text',
             'text': "You've successfully sent a message! Hooray!"
