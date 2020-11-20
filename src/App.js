@@ -39,7 +39,24 @@ function App() {
             });
         }
       })
+  }
 
+  const scanner = () => {
+    liff.init({liffId: process.env.REACT_APP_LIFF})
+      .then(() => {
+        if (!liff.isLoggedIn()) {
+          liff.login({}) // ログインしていなければ最初にログインする
+        } else if (liff.isInClient()) {
+          if(liff.scanCode){
+            liff.scanCode().then(res=>{
+              alert(res)
+            })
+          }else{
+            alert("no scanner....")
+          }  // ユーザ情報を取得する
+          
+        }
+      })
   }
 
   return (
@@ -49,8 +66,10 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <button className="button" onClick={sendMessage}>send message</button> 
-        <button className="button" onClick={getUserInfo}>show user info</button> 
+        <button style={{marginBottom:"20px"}} className="button" onClick={sendMessage}>send message</button> 
+
+        <button style={{marginBottom:"20px"}} className="button" onClick={getUserInfo}>show user info</button> 
+        <button style={{marginBottom:"20px"}} className="button" onClick={scanner}>scan??</button> 
         
       </header>
     </div>
