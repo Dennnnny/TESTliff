@@ -62,6 +62,19 @@ function App() {
       })
   }
 
+  const getSomeToken = () => {
+    liff.init({liffId: process.env.REACT_APP_LIFF})
+      .then(() => {
+        if (!liff.isLoggedIn()) {
+          liff.login({}) // ログインしていなければ最初にログインする
+        } else if (liff.isInClient()) {
+          const id = liff.getIDToken()
+          const decodeId = liff.getDecodedIDToken()
+          alert(`id: ${id}, ${decodeId}`)
+        }
+      })
+  }
+
   const scanner = () => {
     liff.init({liffId: process.env.REACT_APP_LIFF})
       .then(() => {
@@ -90,6 +103,8 @@ function App() {
         <button style={{marginBottom:"20px"}} className="button" onClick={sendMessage}>send message</button> 
 
         <button style={{marginBottom:"20px"}} className="button" onClick={getUserInfo}>show user info</button> 
+        <button style={{marginBottom:"20px"}} className="button" onClick={getSomeToken}>get some token?</button> 
+
         <button style={{marginBottom:"20px"}} className="button" onClick={scanner}>scan??</button> 
 
         <button style={{marginBottom:"20px"}} className="button">
