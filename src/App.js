@@ -43,9 +43,18 @@ function App() {
         } else if (liff.isInClient()) {
           liff.getProfile()  // ユーザ情報を取得する
             .then(profile => {
-              // const userId = profile.userId
-              // const displayName = profile.displayName
-              alert(`all profile: \n${profile}`)
+              const name = profile.displayName
+              const userId = profile.userId 
+              const profilePicture = profile.pictureUrl
+              const mes = profile.statusMessage
+              // console.log('what is name:',profile)
+              alert(`user info: 
+              \nname:${name}
+              \nuserId:${userId}
+              \npicture?${profilePicture}
+              \nmessage?:${mes}
+              \nwhatisphone???:${profile.phone}
+              `)
             }).catch(function(error) {
               window.alert('Error sending message: ' + error);
             });
