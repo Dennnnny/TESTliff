@@ -45,7 +45,7 @@ function App() {
             .then(profile => {
               const userId = profile.userId
               const displayName = profile.displayName
-              alert(`Name: ${displayName}, userId: ${userId}`)
+              alert(`all profile: \n${profile}`)
             }).catch(function(error) {
               window.alert('Error sending message: ' + error);
             });
