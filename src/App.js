@@ -70,7 +70,7 @@ function App() {
         } else if (liff.isInClient()) {
           const id = liff.getIDToken()
           const decodeId = liff.getDecodedIDToken()
-          alert(`id: ${id}, ${decodeId}`)
+          alert(`id: ${id}, ${decodeId.email}`)
         }
       })
   }
