@@ -43,8 +43,8 @@ function App() {
         } else if (liff.isInClient()) {
           liff.getProfile()  // ユーザ情報を取得する
             .then(profile => {
-              const userId = profile.userId
-              const displayName = profile.displayName
+              // const userId = profile.userId
+              // const displayName = profile.displayName
               alert(`all profile: \n${profile}`)
             }).catch(function(error) {
               window.alert('Error sending message: ' + error);
